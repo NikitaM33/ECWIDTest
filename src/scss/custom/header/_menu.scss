@@ -1,0 +1,192 @@
+.#{$header} {
+    position: relative;
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 2rem;
+        padding: 0.6rem 7rem;
+        background: $green;
+        z-index: 5;
+
+        @include desktop {
+            padding: 0.6rem 3rem;
+        }
+
+        @include laptop {
+            padding: 1rem 3rem;
+        }
+
+        @include tablets {
+            position: fixed;
+            padding: 1rem;
+        }
+
+        @include phones {
+            background: none;
+        }
+
+        &__main-menu-body {
+            width: 100%;
+
+            @include tablets {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                padding: 9.5rem 3rem;
+                background-color: $burgerBg;
+                transition: left 0.3s ease;
+                overflow: auto;            
+                z-index: 5;
+
+                &::before {
+                    content: '';
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 7rem;
+                    background: $green
+                        url('../../../img/logo.svg') no-repeat 0 center/16%;
+                    z-index: 2;
+                }
+
+                &._active {
+                    left: 0;
+                }
+            }
+        }
+
+        &__burger-cart {
+            display: none;
+
+            @include tablets {
+                position: absolute;
+                top: -1.6rem;
+                right: 7rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2.6em;
+                height: 2.6em;
+                background: $cartBg;
+                border-radius: 50%;
+                z-index: 5;
+            }
+        }
+
+        &__burger {
+            display: none;
+
+            // Menu burger icon
+            @include tablets {
+                position: relative;
+                top: -1.5rem;
+                right: -44%;
+                display: block;
+                width: 2rem;
+                height: 1rem;
+                cursor: pointer;                
+                z-index: 5;
+
+                & span,
+                &::before,
+                &::after {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 10%;
+                    transition: ease 0.3s;
+                    background: $white;
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                }
+
+                &::before {
+                    top: 0;
+                }
+
+                &::after {
+                    bottom: 0;
+                }
+
+                & span {
+                    top: 50%;
+                    transform: scale(1) translate(0, -50%);
+                }
+            }
+
+            @include phones {}
+
+            &._active span {
+                transform: scale(0) translate(0, -50%);
+            }
+
+            &._active {
+                &::before {
+                    top: 50%;
+                    transform: rotate(-45deg) translate(0, -50%);
+                }
+
+                &::after {
+                    bottom: 50%;
+                    transform: rotate(45deg) translate(0, 50%);
+                }
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.87rem;
+
+        @include tablets {
+            flex-direction: column;
+            font-size: 1rem;
+        }
+
+        @include phones {
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 10rem 2rem 0 0;
+            font-size: 2.8rem;
+        }
+    }
+
+    &__list-item {
+        a {
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @include tablets {
+            margin: 0 0 2rem 0;
+
+            a {
+                font-size: 1.2rem;
+            }
+        }
+
+        @include phones {
+            margin: 0 0 3rem 0;
+            max-width: 20rem;
+            text-align: end;
+        }
+    }
+}

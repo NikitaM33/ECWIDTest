@@ -1,0 +1,85 @@
+.main {
+    padding: $inside;
+
+    @include desktop {
+        padding: 2rem;
+    }
+
+    @include tablets {
+        padding: 0;
+    }
+
+    &__slider {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 3rem;
+        overflow: hidden;
+    }
+
+    &__slider-list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        transition: 1s ease;
+    }
+
+    &__slider-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+    }
+
+    &__slider-dot {
+        width: 0.62rem;
+        height: 0.62rem;
+        margin: 0.3rem 1rem;
+        background: $white;
+        border-radius: 50%;
+        transition: 0.3s ease;
+    }
+
+    &__slider-dot_active {
+        width: 0.62rem;
+        height: 0.62rem;
+        margin: 0.3rem 1rem;
+        background: $green;
+        border: 1px solid $white;
+        border-radius: 50%;
+        transition: 0.3s ease;
+    }
+
+    &__slider-nav-prev,
+    &__slider-nav-next {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $green;
+        font-weight: 700;
+        border: 1px solid $green;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__slider-nav-prev {
+        top: 45%;
+        left: 2rem;
+    }
+
+    &__slider-nav-next {
+        top: 45%;
+        right: 2rem;
+    }
+}

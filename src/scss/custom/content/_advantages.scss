@@ -1,0 +1,59 @@
+.superiority {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: $contentPadding;
+    margin-bottom: 4rem;
+
+    @include desktop {
+        padding: 0;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 20%;
+        margin-bottom: 5%;
+
+        p {
+            text-align: center;
+            color: $green;
+        }
+
+        @include desktop {
+            width: 30%;
+        }
+
+        @include phones {
+            width: 100%;
+            margin-bottom: 10%;
+        }
+    }
+
+    @include laptop {
+        img {
+            width: 4rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @include phones {
+        padding: 0;
+        
+        &__item {
+            
+            img {
+                width: 10rem;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
